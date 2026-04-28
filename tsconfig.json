@@ -36,7 +36,8 @@
     "strict": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "types": ["node", "jest"]
     //"jsx": "react-jsx",
     // "verbatimModuleSyntax": true,
     // "isolatedModules": true,
