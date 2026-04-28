@@ -9,10 +9,16 @@ export const validateCardNumber = (cardNumber: string): boolean => {
     return false;
   }
 
-  //enforce minimum and maximumn length
+  // sanitize card number (eg; remove spaces and dashes)
   const sanitized = cardNumber.replace(/\D/g, "");
 
-  if (sanitized.length < 16 || sanitized.length > 19) {
+  // Reject if not purely numeric after sanitization
+  if (!/^\d+$/.test(sanitized)) {
+    return false;
+  }
+
+  //enforce minimum and maximumn length
+  if (sanitized.length < 13 || sanitized.length > 19) {
     return false;
   }
 
