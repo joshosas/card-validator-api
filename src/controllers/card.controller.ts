@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { validateCardNumber } from "../services/card.service";
 import { ValidateCardRequest } from "../types";
+import { AppError } from "../utils/AppError";
 
 /**
  * Controller to handle card validation requests
@@ -10,9 +11,7 @@ export const validateCard = (req: Request, res: Response) => {
 
   // Check if cardNumber is provided
   if (!cardNumber) {
-    return res.status(400).json({
-      error: "cardNumber is required",
-    });
+    throw new AppError("cardNumber is required", 400);
   }
 
   // Validate card number
